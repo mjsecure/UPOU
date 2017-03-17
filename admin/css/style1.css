@@ -1,0 +1,59 @@
+ .btn-default {
+    background-color: #7b1113;
+    color: #fff;
+    border-color: #7b1113;
+}
+
+.btn-default:hover, .btn-default:active, .btn-default.hover {
+    background-color: #7b1113;
+    
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #335627;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: #eee;
+    background: #335627;
+}
+
+.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    color: #fff;
+    background: #335627;
+    border-left-color: #3c8dbc;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 18px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 18px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 0px solid #ddd;
+}
+
+
+.jumbotron {
+    padding-top: 100px;
+    padding-bottom: 150px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #eee;
+}
+
+.skin-blue .main-header li.user-header {
+    background-color: #7b1113;
+}
+
+ 
