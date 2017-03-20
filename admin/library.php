@@ -78,6 +78,12 @@
     border: 1px solid transparent;
     height: 35px;
     width: 1000px;
+  }
+
+  .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    color: #fff;
+    background: #335627;
+    border-left-color: #b43c25;
 }
 </style>
 
@@ -132,6 +138,37 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
      <br>
+<center><span id=tick2>
+</span></center>
+<script>
+function show2(){
+if (!document.all&&!document.getElementById)
+return
+thelement=document.getElementById? document.getElementById("tick2"): document.all.tick2
+var Digital=new Date()
+var hours=Digital.getHours()
+var minutes=Digital.getMinutes()
+var seconds=Digital.getSeconds()
+var dn="PM"
+if (hours<12)
+dn="AM"
+if (hours>12)
+hours=hours-12
+if (hours==0)
+hours=12
+if (minutes<=9)
+minutes="0"+minutes
+if (seconds<=9)
+seconds="0"+seconds
+var ctime=hours+":"+minutes+":"+seconds+" "+dn
+thelement.innerHTML="<b style='font-size:14;color:white;'>"+ctime+"</b>"
+setTimeout("show2()",1000)
+}
+window.onload=show2
+</script>
+
+<br>
+
       <ul class="sidebar-menu">
 
          <li class="active treeview">
@@ -171,20 +208,27 @@
 <div class="box">
 
   <div class="box-header">
-<div>
-           <form class="sidebar-form">
-        <div class="input-group">
-       <font color="#FFFFFF">  <input type="text" class="form-control" id="search_field" placeholder="Search for terms.." style="width: 50 height: 50">
-            </font>
+<br>
 
-</div>
-</form>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control SearchBar" id="search_field" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-defaul SearchButton" type="button">
+            <span class=" glyphicon glyphicon-search SearchIcon" > <b>Search</b> </span>
+        </button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row --><br><br>
 
 <div class="box-body">
 
  <!-- UPLOAD -->
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button><br><br>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
@@ -283,7 +327,7 @@
 <div class="col-xs-12 col-md-9" style="margin-top:10px;"><input type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="title" name="title" placeholder="Title"></div>
 
 <div class="col-xs-15 col-md-3" style="margin-top:10px;"><span class="mf" style="float:left; margin-right:10px;"> &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;<b>Description:</b> </span></div>
-<div class="col-xs-12 col-md-9" style="margin-top:10px;"><input type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="description" name="description" placeholder="Description"></div>
+<div class="col-xs-12 col-md-9" style="margin-top:10px;"><textarea type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="description" name="description" placeholder="Description"></textarea></div>
 
 <textarea rows="2" cols="50" name="uploaded_by" readonly="" hidden=""><?php echo $userRow['user_email']; ?></textarea>
 <textarea rows="2" cols="50" name="url" readonly="" hidden=""><?php echo $url; ?></textarea>
