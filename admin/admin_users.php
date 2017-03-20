@@ -113,6 +113,10 @@ if(isset($_GET['delete_user_id']))
      <br>
       <ul class="sidebar-menu">
 
+<?php include 'date_time.php';?>
+<br><br>
+
+
          <li class="active treeview">
           <a href="#">
            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
