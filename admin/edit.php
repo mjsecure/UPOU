@@ -150,7 +150,18 @@
   <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">   
   <link rel="stylesheet" href="/UPOU/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="/UPOU/admin/css/style1.css">    
+
+  <style type="text/css">
+    .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    color: #fff;
+    background: #335627;
+    border-left-color: #b43c25;
+}
+  </style>
+
+
  </head>
+
 
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

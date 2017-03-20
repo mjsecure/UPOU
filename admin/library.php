@@ -184,7 +184,7 @@
 
  <!-- UPLOAD -->
 
-<center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button></center>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
@@ -244,7 +244,7 @@
 
                  if($stmt->execute())
                      {
-                       header("library.php"); // redirects image view page after 5 seconds.
+                       header("refresh:3;library.php"); // redirects image view page after 5 seconds.
                      }
                  else
                      {
@@ -288,7 +288,7 @@
 <textarea rows="2" cols="50" name="uploaded_by" readonly="" hidden=""><?php echo $userRow['user_email']; ?></textarea>
 <textarea rows="2" cols="50" name="url" readonly="" hidden=""><?php echo $url; ?></textarea>
 <textarea rows="2" cols="50" name="location" readonly="" hidden=""><?php echo $location; ?></textarea>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <button type="button" class="btn btn-default">
 <input type="file" name="file"  />

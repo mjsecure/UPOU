@@ -103,12 +103,12 @@
    
    if($stmt->execute())
    {
-        $successMSG = "new record succesfully inserted ...";
+        $successMSG = "New Record Succesfully Inserted ...";
                 header("refresh:3;library.php"); 
    }
    else
    {
-    $errMSG = "error while inserting....";
+    $errMSG = "Error while inserting....";
    }
   }
  }
@@ -139,7 +139,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
+          <button type="button" class="close" data-dismiss="modal">x</button>
          
         </div>
         <div class="modal-body">

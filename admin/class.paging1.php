@@ -104,7 +104,6 @@ class paginate1
 			?> </ul>
 <?php
  				
-
 		}
 	}
 }
