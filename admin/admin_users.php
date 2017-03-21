@@ -28,22 +28,35 @@ if(isset($_GET['delete_user_id']))
 
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>UP Open University</title>  
+  <title>UP Open University</title>
+  <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">  <!-- Theme style -->
-  <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css">  
-  <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css"> 
-  <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">   
+  <!-- Bootstrap 3.3.6 -->
+   <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">  
+  <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="/UPOU/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">  
 
+  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">  
+  
 <style type="text/css">
   .pager li>a, .pager li>span {
     display: inline-block;
@@ -53,7 +66,15 @@ if(isset($_GET['delete_user_id']))
     border-radius: 9px;
 }
 
-.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+.skin-blue .sidebar-form input[type="text"], .skin-blue .sidebar-form .btn {
+    box-shadow: none;
+    background-color: #FFFFFF;
+    border: 1px solid transparent;
+    height: 35px;
+    width: 1000px;
+  }
+
+  .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
     color: #fff;
     background: #335627;
     border-left-color: #b43c25;
@@ -66,7 +87,7 @@ if(isset($_GET['delete_user_id']))
 
   <header class="main-header">    <!-- Logo -->
     <a href="#" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">UPOU</span> <!-- logo for regular state and mobile devices -->
+      <span class="logo-mini">UPOU</span>      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>UP </b>Open University</span> </a>    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">      <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -107,22 +128,21 @@ if(isset($_GET['delete_user_id']))
 <!--********************************************************************************************** -->
 
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+ <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-     <br>
+
       <ul class="sidebar-menu">
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php include 'date_time.php';?>
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</span><?php include 'date_time.php';?>
 <br><br>
-
 
          <li class="active treeview">
           <a href="home.php">
            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-
+       
         <li class="treeview">
           <a href="library.php">
             <i class="fa fa-files-o"></i>
@@ -152,24 +172,25 @@ if(isset($_GET['delete_user_id']))
  <section class="content">
 
 <div class="box">
-<div class="box-body">
+
+  <div class="box-header">
 <br>
 
-
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-4" style="float: right;">
     <div class="input-group">
       <input type="text" class="form-control SearchBar" id="search_field" placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-defaul SearchButton" type="button">
+        <button class="btn btn-primary SearchButton" type="button">
             <span class=" glyphicon glyphicon-search SearchIcon" > <b>Search</b> </span>
         </button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div><!-- /.row --><br><br>
-<!-- Add New -->
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; ADD NEW </button>
+</div><!-- /.row -->
+
+<div class="box-body">
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; ADD NEW </button> <br>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
@@ -214,68 +235,86 @@ if(isset($_GET['delete_user_id']))
 
 <!-- /End -->
 
-<form method="post" enctype="multipart/form-data" class="form-horizontal">
-
-<table class="table table-responsive table-hover" id="myTable">
-    <tr style="background-color:#7b1113;color:#F0FFFF;">
+  <table class="table table-responsive table-hover" id="myTable">
+ <tr style="background-color:#7b1113;color:#F0FFFF;">    
     <td><b>User Name</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>Email</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>Registration Date</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b><center>Action</center></b></td>    
-    </tr>
 
- <?php 
+ </tr> 
+
+       <?php 
         $query = "SELECT * FROM tbl_access ORDER BY user_id DESC";     
-        $records_per_page=3;
+        $records_per_page=10;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate1->dataview($newquery);
         $paginate1->paginglink($query,$records_per_page);    
         ?>
-</table>
-<script>
+
+  </table>
+
+  <script>
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable");
-  switching = true; 
-  dir = "asc";  
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
   while (switching) {
+    //start by saying: no switching is done:
     switching = false;
-    rows = table.getElementsByTagName("TR");    
-    for (i = 1; i < (rows.length - 1); i++) {      
-      shouldSwitch = false;     
+    rows = table.getElementsByTagName("TR");
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-          if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {         
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
           shouldSwitch= true;
           break;
         }
       } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {         
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
           shouldSwitch= true;
           break;
         }
       }
     }
     if (shouldSwitch) {
-           rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;      
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
       switchcount ++;      
     } else {
-          if (switchcount == 0 && dir == "asc") {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
       }
     }
   }
 }
-</script>
-</form>
-  <br> <br> <br>
 
+</script>
  </div>
-   <!-- /.box-body -->
+            <!-- /.box-body -->
           </div>
+
 
      </section>
     <!-- /.content -->
@@ -287,8 +326,7 @@ function sortTable(n) {
   </footer>
 
   <!-- Control Sidebar -->
- 
-  <!-- /.control-sidebar -->
+   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
@@ -297,6 +335,7 @@ function sortTable(n) {
 <script src="/UPOU/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="/UPOU/admin/bootstrap/js/bootstrap.min.js"></script>
 <script src="/UPOU/admin/dist/js/app.min.js"></script>
+
 
 <script>
 $('#search_field').on('keyup', function() {
@@ -316,7 +355,5 @@ $('#search_field').on('keyup', function() {
 
 });
 </script>
-
-
 </body>
 </html>

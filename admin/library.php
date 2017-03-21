@@ -183,24 +183,23 @@
 <br>
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-4" style="float: right;">
     <div class="input-group">
       <input type="text" class="form-control SearchBar" id="search_field" placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-defaul SearchButton" type="button">
+        <button class="btn btn-primary SearchButton" type="button">
             <span class=" glyphicon glyphicon-search SearchIcon" > <b>Search</b> </span>
         </button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div><!-- /.row --><br><br>
+</div><!-- /.row -->
 
 <div class="box-body">
 
  <!-- UPLOAD -->
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button><br><br>
-
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button> <br>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
@@ -331,18 +330,18 @@
 
 <!-- UPLOAD -->
 
-  <table class="table table-hover" id="myTable">
+  <table class="table table-responsive table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
     <td><b>Category </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>File Name </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
-    <td><b>Details </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>   
+    <td><b><center>Details </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></center></td>   
     <td><b>Action</b> </td>
 
  </tr> 
 
        <?php 
          $query = "SELECT *, tbl_category.category_id, tbl_category.name FROM tbl_uploads INNER JOIN tbl_category ON tbl_uploads.category_id=tbl_category.category_id ORDER BY id DESC";         
-        $records_per_page=3;
+        $records_per_page=10;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate->dataview($newquery);
         $paginate->paginglink($query,$records_per_page);    
