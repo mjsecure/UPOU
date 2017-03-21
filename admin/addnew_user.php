@@ -21,16 +21,16 @@ if(isset($_POST['btn-signup']))
 	$upass = strip_tags($_POST['txt_upass']);	
 	
 	if($uname=="")	{
-		$error[] = "provide username !";	
+		$error[] = "Provide username !";	
 	}
 	else if($umail=="")	{
-		$error[] = "provide email id !";	
+		$error[] = "Provide email !";	
 	}
 	else if(!filter_var($umail, FILTER_VALIDATE_EMAIL))	{	
 	    $error[] = 'Please enter a valid email address !';
 	}
 	else if($upass=="")	{
-		$error[] = "provide password !";
+		$error[] = "Provide password !";
 	}
 	else if(strlen($upass) < 6){
 		$error[] = "Password must be atleast 6 characters";	
@@ -44,15 +44,20 @@ if(isset($_POST['btn-signup']))
 			$row=$stmt->fetch(PDO::FETCH_ASSOC);
 				
 			if($row['user_name']==$uname) {
-				$error[] = "sorry username already taken !";
+				$error[] = "Sorry username already taken !";
 			}
 			else if($row['user_email']==$umail) {
-				$error[] = "sorry email id already taken !";
+				$error[] = "Sorry email id already taken !";
 			}
 			else
 			{
 				if($user->register($uname,$umail,$upass)){	
-					$user->redirect('addnew_user.php?joined');
+					 if($stmt->execute())
+   {
+        $successMSG = "New record succesfully inserted ...";
+                header("refresh:3;admin_users.php"); 
+   }
+
 				}
 			}
 		}
@@ -64,6 +69,7 @@ if(isset($_POST['btn-signup']))
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -90,7 +96,7 @@ if(isset($_POST['btn-signup']))
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>        
+          <button type="button" class="close" data-dismiss="modal">x</button>        
         </div>
         <div class="modal-body">
       
@@ -106,14 +112,16 @@ if(isset($_POST['btn-signup']))
                      <?php
         }
       }
-      else if(isset($_GET['joined']))
+      else if(isset($successMSG))
       {
          ?>
-                 <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered! </div>
+                 <div class="alert alert-success">
+              <strong><span class="glyphicon glyphicon-info-sign"></span><?php echo $successMSG; ?></strong>
+        </div>
                  <?php
       }
       ?>
+
 
         </div>
         <div class="modal-footer">          

@@ -34,14 +34,22 @@
   <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css"> 
   <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">   
   <link rel="stylesheet" href="/UPOU/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">       
+  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">   
+<style type="text/css">
+  .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    color: #fff;
+    background: #335627;
+    border-left-color: #b43c25;
+}
+</style>
+
  </head>
  
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">    <!-- Logo -->
-    <a href="home.php" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
+    <a href="#" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">UPOU</span>      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>UP </b>Open University</span> </a>    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">      <!-- Sidebar toggle button-->
@@ -54,7 +62,7 @@
         <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">           
             <span class="glyphicon glyphicon-user"></span>            
-              <span class="hidden-xs"><font size="3">&nbsp;Hi' <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
+              <span class="hidden-xs"><font size="3">&nbsp;Hello!&nbsp; <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -89,8 +97,12 @@
      <br>
       <ul class="sidebar-menu">
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php include 'date_time.php';?>
+<br><br>
+
+
          <li class="active treeview">
-          <a href="#">
+          <a href="home.php">
            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>

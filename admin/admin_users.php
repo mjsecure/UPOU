@@ -52,6 +52,12 @@ if(isset($_GET['delete_user_id']))
     border: 1px solid #C0C0C0;
     border-radius: 9px;
 }
+
+.skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
+    color: #fff;
+    background: #335627;
+    border-left-color: #b43c25;
+}
 </style>
 
  </head>
@@ -59,8 +65,8 @@ if(isset($_GET['delete_user_id']))
 <div class="wrapper">
 
   <header class="main-header">    <!-- Logo -->
-    <a href="home.php" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">UPOU</span>      <!-- logo for regular state and mobile devices -->
+    <a href="#" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini">UPOU</span> <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>UP </b>Open University</span> </a>    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">      <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -72,7 +78,7 @@ if(isset($_GET['delete_user_id']))
         <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">           
             <span class="glyphicon glyphicon-user"></span>            
-              <span class="hidden-xs"><font size="3">&nbsp;Hi' <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
+              <span class="hidden-xs"><font size="3">&nbsp;Hello!&nbsp; <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -107,8 +113,12 @@ if(isset($_GET['delete_user_id']))
      <br>
       <ul class="sidebar-menu">
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php include 'date_time.php';?>
+<br><br>
+
+
          <li class="active treeview">
-          <a href="#">
+          <a href="home.php">
            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -145,37 +155,52 @@ if(isset($_GET['delete_user_id']))
 <div class="box-body">
 <br>
 
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control SearchBar" id="search_field" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-defaul SearchButton" type="button">
+            <span class=" glyphicon glyphicon-search SearchIcon" > <b>Search</b> </span>
+        </button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row --><br><br>
 <!-- Add New -->
-<center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; ADD NEW </button></center>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; ADD NEW </button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background:#7b1113; padding:10px 15px;">
         <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-       <h4 class="modal-title h2" id="myModalLabel" style="color: #fff; text-shadow:2px 2px 2px #02062E;">ADD NEW USER</h4>
+       <h4 class="modal-title h2" id="myModalLabel" style="color: #fff; text-shadow:2px 2px 2px #02062E;">ADD NEW</h4>
       </div>
      <div class="modal-body">      
+     
 <form  action="addnew_user.php" method="post" class="form-signin" id="exampleModal">
-                       
+       
             <label>UserName</label>
-            <div class="form-group">
-            <input type="text" class="form-control" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo $uname;}?>" />
+            <div class="form-group has-feedback">
+            <input type="text" class="form-control" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo $uname;}?>" /> <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
 
             <label>E-Mail</label>
-            <div class="form-group">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail" value="<?php if(isset($error)){echo $umail;}?>" />
+            <div class="form-group has-feedback">
+            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail" value="<?php if(isset($error)){echo $umail;}?>" /> <b><span class="glyphicon glyphicon-briefcase form-control-feedback"></span></b>
             </div>
 
             <label>Password</label>
-            <div class="form-group">
+            <div class="form-group has-feedback">
               <input type="password" class="form-control" name="txt_upass" placeholder="Enter Password" />
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="clearfix"></div><hr />
             <div class="form-group">
-              <center><button type="submit" class="btn btn-default" name="btn-signup">
-                  <i class="glyphicon glyphicon-plus"></i>&nbsp;REGISTER</center>
+              <button type="submit" class="btn btn-default" name="btn-signup">
+                  <i class="glyphicon glyphicon-plus"></i>&nbsp;REGISTER
                 </button>
            </div>            
         </form>
@@ -189,26 +214,62 @@ if(isset($_GET['delete_user_id']))
 
 <!-- /End -->
 
-
 <form method="post" enctype="multipart/form-data" class="form-horizontal">
 
 <table class="table table-responsive table-hover" id="myTable">
     <tr style="background-color:#7b1113;color:#F0FFFF;">
-    <td><b>User Name</b></td>
-    <td><b>Email</b></td>
-    <td><b>Registration Date</b></td>
+    <td><b>User Name</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
+    <td><b>Email</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
+    <td><b>Registration Date</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b><center>Action</center></b></td>    
     </tr>
 
  <?php 
         $query = "SELECT * FROM tbl_access ORDER BY user_id DESC";     
-        $records_per_page=5;
+        $records_per_page=3;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate1->dataview($newquery);
         $paginate1->paginglink($query,$records_per_page);    
         ?>
-
 </table>
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true; 
+  dir = "asc";  
+  while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName("TR");    
+    for (i = 1; i < (rows.length - 1); i++) {      
+      shouldSwitch = false;     
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+          if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {         
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {         
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+           rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;      
+      switchcount ++;      
+    } else {
+          if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
 </form>
   <br> <br> <br>
 
@@ -236,6 +297,25 @@ if(isset($_GET['delete_user_id']))
 <script src="/UPOU/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="/UPOU/admin/bootstrap/js/bootstrap.min.js"></script>
 <script src="/UPOU/admin/dist/js/app.min.js"></script>
+
+<script>
+$('#search_field').on('keyup', function() {
+ var value = $(this).val();
+ var patt = new RegExp(value, "i");
+
+ $('#myTable').find('tr').each(function() {
+   if (!($(this).find('td').text().search(patt) >= 0)) {
+     $(this).not('.myHead').hide();
+   }
+   if (($(this).find('td').text().search(patt) >= 0)) {
+     $(this).show();
+   }
+
+ });
+
+
+});
+</script>
 
 
 </body>
