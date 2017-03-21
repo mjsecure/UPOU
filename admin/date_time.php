@@ -6,7 +6,7 @@ var monNames = new Array("January","February","March","April","May","June","July
 document.write("" + dayNames[now.getDay()] + " " + monNames[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear());
 </script></b>
 <br>
-<span id=tick2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id=tick2>
 </span>
 <script>
 function show2(){

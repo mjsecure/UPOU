@@ -49,7 +49,7 @@
 <div class="wrapper">
 
   <header class="main-header">    <!-- Logo -->
-    <a href="home.php" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
+    <a href="#" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">UPOU</span>      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>UP </b>Open University</span> </a>    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">      <!-- Sidebar toggle button-->
@@ -62,7 +62,7 @@
         <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">           
             <span class="glyphicon glyphicon-user"></span>            
-              <span class="hidden-xs"><font size="3">&nbsp;Hi' <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
+              <span class="hidden-xs"><font size="3">&nbsp;Hello!&nbsp; <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -97,12 +97,12 @@
      <br>
       <ul class="sidebar-menu">
 
-<?php include 'date_time.php';?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php include 'date_time.php';?>
 <br><br>
 
 
          <li class="active treeview">
-          <a href="#">
+          <a href="home.php">
            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>

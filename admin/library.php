@@ -92,7 +92,7 @@
 <div class="wrapper">
 
   <header class="main-header">    <!-- Logo -->
-    <a href="home.php" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
+    <a href="#" class="logo">      <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">UPOU</span>      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>UP </b>Open University</span> </a>    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">      <!-- Sidebar toggle button-->
@@ -105,7 +105,7 @@
         <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">           
             <span class="glyphicon glyphicon-user"></span>            
-              <span class="hidden-xs"><font size="3">&nbsp;Hi' <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
+              <span class="hidden-xs"><font size="3">&nbsp;Hello!&nbsp; <?php echo $userRow['user_email']; ?>&nbsp;</font></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -137,14 +137,14 @@
  <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-<br>
-<?php include 'date_time.php';?>
-<br><br>
 
       <ul class="sidebar-menu">
+<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;</span><?php include 'date_time.php';?>
+<br><br>
 
          <li class="active treeview">
-          <a href="#">
+          <a href="home.php">
            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -342,7 +342,7 @@
 
        <?php 
          $query = "SELECT *, tbl_category.category_id, tbl_category.name FROM tbl_uploads INNER JOIN tbl_category ON tbl_uploads.category_id=tbl_category.category_id ORDER BY id DESC";         
-        $records_per_page=5;
+        $records_per_page=3;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate->dataview($newquery);
         $paginate->paginglink($query,$records_per_page);    
