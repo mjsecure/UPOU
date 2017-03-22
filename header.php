@@ -48,13 +48,16 @@ if ($gClient->getAccessToken()) {
 
         $hi = ' <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <span class="glyphicon glyphicon-user"></span>&nbsp;Hi! ' . $userData['first_name'].' ' . $userData['last_name'].'  <span class="caret"></span> </a>';
+
+        $home = ' <a href="index.php">
+              <span class="glyphicon glyphicon-home"></span>&nbsp;HOME&nbsp;<span class="primary"></span></a>';       
       
        $logout = '<a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>';
        
        $library = ' <a href="library.php">
-              <span class="fa fa-files-o"></span>&nbsp;Library&nbsp;<span class="primary"></span></a>';
+              <span class="glyphicon glyphicon-file"></span>&nbsp;Library&nbsp;<span class="primary"></span></a>';
        $uploader = ' ' . $userData['first_name'].' '.$userData['last_name'];
-       $user  = '<img src="'.$userData['picture'].'" width="200" height="200" class="img-thumbnail"><br/>
+       $user  = '<img src="'.$userData['picture'].'" width="200" height="200" class="img-circle"><br/>
               ';
        $user1 = '<br/>Name : ' . $userData['first_name'].' '.$userData['last_name'];
        $user2 = '<br/>Email : ' . $userData['email'];
@@ -76,8 +79,7 @@ if ($gClient->getAccessToken()) {
     $user = '<a href="#"></a>';
     $user1 = '<a href="#"></a>';
     $user2 = '<a href="#"></a>';
+    $home = '<a href="#"></a>';
     
-
-
 }
 ?>

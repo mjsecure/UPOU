@@ -1,11 +1,11 @@
 <?php
   
-  require_once 'config.php'; 
-  require_once 'dbconfig.php';   
+  require_once 'config.php';
+ 
   require_once("session.php");
   
   require_once("class.user.php");
-  
+
   $auth_user = new USER();
   
   
@@ -16,18 +16,24 @@
   
   $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 
-if(isset($_GET['delete_user_id']))
-  {    
-        // it will delete an actual record from db
-    $stmt_delete = $DB_con->prepare('DELETE FROM tbl_access WHERE user_id =:user_id');
-    $stmt_delete->bindParam(':user_id',$_GET['delete_user_id']);
+
+  if(isset($_GET['delete_id']))
+  {
+    // select image from db to delete
+    $stmt_select = $DB_con->prepare('SELECT file FROM tbl_uploads WHERE id =:uid');
+    $stmt_select->execute(array(':uid'=>$_GET['delete_id']));
+    $imgRow=$stmt_select->fetch(PDO::FETCH_ASSOC);
+    unlink("uploads/".$imgRow['file']);
+    
+    // it will delete an actual record from db
+    $stmt_delete = $DB_con->prepare('DELETE FROM tbl_uploads WHERE id =:uid');
+    $stmt_delete->bindParam(':uid',$_GET['delete_id']);
     $stmt_delete->execute();
     
-    header("Location: admin_users.php");
+    header("Location: library.php");
   }
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -37,16 +43,14 @@ if(isset($_GET['delete_user_id']))
   <title>UP Open University</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">  <!-- Font Awesome -->  
   <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css">  
   <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css"> 
   <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">   
   <link rel="stylesheet" href="/UPOU/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="/UPOU/admin/css/style1.css">    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-
-  
-<style type="text/css">
+  <style type="text/css">
   .pager li>a, .pager li>span {
     display: inline-block;
     padding: 5px 14px;
@@ -79,7 +83,7 @@ if(isset($_GET['delete_user_id']))
       <span class="logo-mini">UPOU</span>      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>UP </b>Open University</span> </a>    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">       
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <div class="navbar-custom-menu">
@@ -179,41 +183,131 @@ if(isset($_GET['delete_user_id']))
 </div><!-- /.row -->
 
 <div class="box-body">
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; ADD NEW </button> <br>
+
+ <!-- UPLOAD -->
+
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button> <br>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background:#7b1113; padding:10px 15px;">
         <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-       <h4 class="modal-title h2" id="myModalLabel" style="color: #fff; text-shadow:2px 2px 2px #02062E;">ADD NEW</h4>
+       <h4 class="modal-title h2" id="myModalLabel" style="color: #fff; text-shadow:2px 2px 2px #02062E;">UPLOAD</h4>
       </div>
      <div class="modal-body">      
-     
-<form  action="addnew_user.php" method="post" class="form-signin" id="exampleModal">
-       
-            <label>UserName</label>
-            <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="txt_uname" placeholder="Enter Username" value="<?php if(isset($error)){echo $uname;}?>" /> <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
 
-            <label>E-Mail</label>
-            <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail" value="<?php if(isset($error)){echo $umail;}?>" /> <b><span class="glyphicon glyphicon-briefcase form-control-feedback"></span></b>
-            </div>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+                
+<div class="col-xs-15 col-md-14">
+<div class="col-xs-12 col-md-3" style="margin-top:10px;"><span class="mf" style="float:left; margin-right:10px;"> &nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;<b>Title:</b></span></div>
+<div class="col-xs-12 col-md-9" style="margin-top:10px;"><input type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="title" name="title" placeholder="Title"></div>
 
-            <label>Password</label>
-            <div class="form-group has-feedback">
-              <input type="password" class="form-control" name="txt_upass" placeholder="Enter Password" />
-              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="clearfix"></div><hr />
-            <div class="form-group">
-              <button type="submit" class="btn btn-default" name="btn-signup">
-                  <i class="glyphicon glyphicon-plus"></i>&nbsp;REGISTER
-                </button>
-           </div>            
-        </form>
+<div class="col-xs-15 col-md-3" style="margin-top:10px;"><span class="mf" style="float:left; margin-right:10px;"> &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;<b>Description:</b> </span></div>
+<div class="col-xs-12 col-md-9" style="margin-top:10px;"><textarea type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="description" name="description" placeholder="Description"></textarea></div>
+
+
+<?php
+           // php select option value from database
+           $hostname = "localhost";
+           $username = "root";
+           $password = "";
+           $databaseName = "our_upou";
+
+           // connect to mysql database
+           $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+           // mysql select query
+           $query = "SELECT * FROM `tbl_category`";
+
+           // for method 1
+           $result1 = mysqli_query($connect, $query);
+
+           // for method 2
+           $result2 = mysqli_query($connect, $query);
+
+           $options = "";
+
+           while($row2 = mysqli_fetch_array($result2))
+                 {
+                     $options = $options."<option>$row2[1]</option>";
+                 }
+       ?>
+
+<div class="col-xs-12 col-md-3" style="margin-top:30px;"><span class="mf" style="float:left; margin-right:10px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Category:</b></span></div>
+
+<div class="col-xs-12 col-md-9" style="margin-top:10px;"> 
+  <br> 
+
+<script src="/UPOU/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
+  <select name="category_id" class="form-control" id="name" style="display: inline-block; position: relative;"> 
+         <?php
+           if(isset($_POST['add_new_cat']) )
+             {
+                 $name = $_POST['name'];
+
+                 $stmt = $DB_con->prepare('INSERT INTO tbl_category(name) VALUES (:name)');
+                 $stmt->bindParam(':name',$name);
+
+                 if($stmt->execute())
+                     {
+                       header("refresh:3;library.php"); // redirects image view page after 5 seconds.
+                     }
+                 else
+                     {
+                       $errMSG = "error while inserting....";
+                     }
+             }
+       ?>  
+           <?php while($row1 = mysqli_fetch_array($result1)):;?>
+           <option value="<?php echo $row1[0];?>"><?php echo $row1[1];?></option>
+           <?php endwhile;?>
+
+        <option value="new">Add New Category</option>
+        </select> 
+           <br><br>
+<div class="form-group row" id="newCat" style="display: none;" >
+<label class="col-sm-2 col-form-label" for="specify" ></label>
+<div class="col-sm-10">
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Specify:</b> &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control-file" id="exampleInputFile" name="name" placeholder="Specify category"/><br><br>
+   <button type="submit1" name="add_new_cat" class="btn btn-default">ADD NEW CATEGORY</button>  <br><br>
+     <script type="text/javascript">
+       $('#name').on('change',function(){
+           if( $(this).val()==="new"){
+             $("#newCat").show()
+           }
+           else{
+             $("#newCat").hide()
+           }
+       });
+     </script>
+    </div> 
+    </div>
+    </div>
+
+
+
+<textarea rows="2" cols="50" name="uploaded_by" readonly="" hidden=""><?php echo $userRow['user_email']; ?></textarea>
+<textarea rows="2" cols="50" name="url" readonly="" hidden=""><?php echo $url; ?></textarea>
+<textarea rows="2" cols="50" name="location" readonly="" hidden=""><?php echo $location; ?></textarea>
+<br><br><br><br><br><br><br><br><br><br>
+
+ &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <button type="button" class="btn btn-default">
+<input type="file" name="file"  />
+</button>
+
+<br><br>
+
+ &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<button type="submit" name="btnsave" class="btn btn-default">
+        <i class="fa fa-upload"></i></span> UPLOAD
+</button>
+
+<br><br><br>
+    </form>
+
+</div>
+
 </div>
 <div class="modal-footer" style="margin-top:0px; background:#7b1113;">
 
@@ -222,23 +316,23 @@ if(isset($_GET['delete_user_id']))
   </div>
 </div>
 
-<!-- /End -->
+<!-- UPLOAD -->
 
   <table class="table table-responsive table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
-    <td><b>User Name</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
-    <td><b>Email</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
-    <td><b>Registration Date</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
-    <td><b><center>Action</center></b></td>    
+    <td><b>Category </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
+    <td><b>File Name </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
+    <td><b><center>Details </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></center></td>   
+    <td><b>Action</b> </td>
 
  </tr> 
 
        <?php 
-        $query = "SELECT * FROM tbl_access ORDER BY user_id DESC";     
+         $query = "SELECT *, tbl_category.category_id, tbl_category.name FROM tbl_uploads INNER JOIN tbl_category ON tbl_uploads.category_id=tbl_category.category_id ORDER BY id DESC";         
         $records_per_page=5;
         $newquery = $paginate->paging($query,$records_per_page);
-        $paginate1->dataview($newquery);
-        $paginate1->paginglink($query,$records_per_page);    
+        $paginate->dataview($newquery);
+        $paginate->paginglink($query,$records_per_page);    
         ?>
 
   </table>
@@ -325,7 +419,6 @@ function sortTable(n) {
 <script src="/UPOU/admin/bootstrap/js/bootstrap.min.js"></script>
 <script src="/UPOU/admin/dist/js/app.min.js"></script>
 
-
 <script>
 $('#search_field').on('keyup', function() {
  var value = $(this).val();
@@ -343,6 +436,7 @@ $('#search_field').on('keyup', function() {
 
 
 });
+
 </script>
 </body>
 </html>

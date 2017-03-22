@@ -27,20 +27,21 @@
   
   <title>UP Open University</title>  
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">  
-  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">  <!-- Theme style -->
+  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css"> <!-- Font Awesome -->
   <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css">  
   <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css"> 
   <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">   
   <link rel="stylesheet" href="/UPOU/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">   
+  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
 <style type="text/css">
   .skin-blue .sidebar-menu>li:hover>a, .skin-blue .sidebar-menu>li.active>a {
     color: #fff;
     background: #335627;
     border-left-color: #b43c25;
 }
+
 </style>
 
  </head>
@@ -53,8 +54,7 @@
       <span class="logo-mini">UPOU</span>      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>UP </b>Open University</span> </a>    <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">         
       </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">       
@@ -103,13 +103,13 @@
 
          <li class="active treeview">
           <a href="home.php">
-           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+           <i class="glyphicon glyphicon-home"></i> <span>HOME</span>
           </a>
         </li>
         
         <li class="treeview">
           <a href="library.php">
-            <i class="fa fa-files-o"></i>
+            <i class="glyphicon glyphicon-file"></i>
             <span>FILED</span>
             <span class="pull-right-container">            
             </span>
@@ -118,7 +118,7 @@
 
      <li class="treeview">
           <a href="admin_users.php">
-            <i class="fa fa-users"></i>
+            <i class="glyphicon glyphicon-user"></i>
             <span>USERS</span>
             <span class="pull-right-container">            
             </span>

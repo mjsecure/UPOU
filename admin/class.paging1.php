@@ -90,7 +90,7 @@ class paginate1
 			{
 				if($i==$current_page)
 				{
-					echo "<li><strong><a href='".$self."?page_no=".$i."' style='color:red;text-decoration:none'>".$i."</a></strong></li>&nbsp;&nbsp;";
+					echo "<li><a href='".$self."?page_no=".$i."' style='color:red'><b>".$i."</b></a></li>&nbsp;&nbsp;";
 				}
 				else
 				{

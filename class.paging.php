@@ -32,10 +32,8 @@ class paginate
     
                  </td>
         <td>              
-        <center>  	
- 		<a href="<?php echo $row['url'] ?>" target="_blank"><?php echo $row['url'] ?></a> </li><br>
- 		</center>
-        </td>
+        <a href="<?php echo $row['url'] ?>" target="_blank"><?php echo $row['url'] ?></a> </li><br>
+ 		 </td>
 
 <td> <?php echo $row['date_created']; ?> </td>
 
@@ -80,7 +78,7 @@ class paginate
 		if($total_no_of_records > 0)
 		{
 			?>
-			<ul class="pager navbar-left">
+			<ul class="pager navbar-center">
     					
 			<?php
 			$total_no_of_pages=ceil($total_no_of_records/$records_per_page);
@@ -99,7 +97,7 @@ class paginate
 			{
 				if($i==$current_page)
 				{
-					echo "<li><strong><a href='".$self."?page_no=".$i."' style='color:red;text-decoration:none'>".$i."</a></strong></li>&nbsp;&nbsp;";
+					echo "<li><a href='".$self."?page_no=".$i."' style='color:red'><b>".$i."</b></a></li>&nbsp;&nbsp;";
 				}
 				else
 				{

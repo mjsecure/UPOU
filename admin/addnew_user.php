@@ -78,14 +78,14 @@ if(isset($_POST['btn-signup']))
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>UP Open University</title> 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> 
-  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">  <!-- Theme style -->
+  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css"> <!-- Font Awesome -->    
   <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css">  
   <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css"> 
   <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">   
   <link rel="stylesheet" href="/UPOU/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">  
+  <link rel="stylesheet" href="/UPOU/admin/css/style1.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">   
+
  </head>
 <body>
 
@@ -116,7 +116,7 @@ if(isset($_POST['btn-signup']))
       {
          ?>
                  <div class="alert alert-success">
-              <strong><span class="glyphicon glyphicon-info-sign"></span><?php echo $successMSG; ?></strong>
+              <strong><span class="glyphicon glyphicon-info-sign"></span> &nbsp; <?php echo $successMSG; ?></strong>
         </div>
                  <?php
       }

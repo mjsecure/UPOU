@@ -43,27 +43,14 @@
   <title>UP Open University</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-   <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">  
-  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">  <!-- Font Awesome -->  
+  <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css">  
+  <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css"> 
+  <link rel="stylesheet" href="/UPOU/admin/plugins/iCheck/flat/blue.css">   
   <link rel="stylesheet" href="/UPOU/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
-  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">  
-  
-<style type="text/css">
+  <link rel="stylesheet" href="/UPOU/admin/css/style1.css">    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <style type="text/css">
   .pager li>a, .pager li>span {
     display: inline-block;
     padding: 5px 14px;
@@ -145,13 +132,13 @@
 
          <li class="active treeview">
           <a href="home.php">
-           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+           <i class="glyphicon glyphicon-home"></i> <span>HOME</span>
           </a>
         </li>
        
         <li class="treeview">
           <a href="library.php">
-            <i class="fa fa-files-o"></i>
+            <i class="glyphicon glyphicon-file"></i>
             <span>FILED</span>
             <span class="pull-right-container">            
             </span>
@@ -160,7 +147,7 @@
 
      <li class="treeview">
           <a href="admin_users.php">
-            <i class="fa fa-users"></i>
+            <i class="glyphicon glyphicon-user"></i>
             <span>USERS</span>
             <span class="pull-right-container">            
             </span>
@@ -212,6 +199,13 @@
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
                 
+<div class="col-xs-15 col-md-14">
+<div class="col-xs-12 col-md-3" style="margin-top:10px;"><span class="mf" style="float:left; margin-right:10px;"> &nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;<b>Title:</b></span></div>
+<div class="col-xs-12 col-md-9" style="margin-top:10px;"><input type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="title" name="title" placeholder="Title"></div>
+
+<div class="col-xs-15 col-md-3" style="margin-top:10px;"><span class="mf" style="float:left; margin-right:10px;"> &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;<b>Description:</b> </span></div>
+<div class="col-xs-12 col-md-9" style="margin-top:10px;"><textarea type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="description" name="description" placeholder="Description"></textarea></div>
+
 
 <?php
            // php select option value from database
@@ -240,7 +234,6 @@
                  }
        ?>
 
-
 <div class="col-xs-12 col-md-3" style="margin-top:30px;"><span class="mf" style="float:left; margin-right:10px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Category:</b></span></div>
 
 <div class="col-xs-12 col-md-9" style="margin-top:10px;"> 
@@ -259,7 +252,7 @@
 
                  if($stmt->execute())
                      {
-                       header("refresh:3;library.php"); // redirects image view page after 5 seconds.
+                       header("library.php"); // redirects image view page after 5 seconds.
                      }
                  else
                      {
@@ -277,7 +270,7 @@
 <div class="form-group row" id="newCat" style="display: none;" >
 <label class="col-sm-2 col-form-label" for="specify" ></label>
 <div class="col-sm-10">
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Specify:</b> &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control-file" id="exampleInputFile" name="name" placeholder="Specify category"/>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Specify:</b> &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control-file" id="exampleInputFile" name="name" placeholder="Specify category"/><br><br>
    <button type="submit1" name="add_new_cat" class="btn btn-default">ADD NEW CATEGORY</button>  <br><br>
      <script type="text/javascript">
        $('#name').on('change',function(){
@@ -293,12 +286,7 @@
     </div>
     </div>
 
-<div class="col-xs-15 col-md-14">
-<div class="col-xs-12 col-md-3" style="margin-top:10px;"><span class="mf" style="float:left; margin-right:10px;"> &nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;<b>Title:</b></span></div>
-<div class="col-xs-12 col-md-9" style="margin-top:10px;"><input type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="title" name="title" placeholder="Title"></div>
 
-<div class="col-xs-15 col-md-3" style="margin-top:10px;"><span class="mf" style="float:left; margin-right:10px;"> &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;<b>Description:</b> </span></div>
-<div class="col-xs-12 col-md-9" style="margin-top:10px;"><textarea type="text" maxlength="120"  class="form-control" style="width:100%; float:left;" id="description" name="description" placeholder="Description"></textarea></div>
 
 <textarea rows="2" cols="50" name="uploaded_by" readonly="" hidden=""><?php echo $userRow['user_email']; ?></textarea>
 <textarea rows="2" cols="50" name="url" readonly="" hidden=""><?php echo $url; ?></textarea>
@@ -330,6 +318,9 @@
 
 <!-- UPLOAD -->
 
+
+
+
   <table class="table table-responsive table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
     <td><b>Category </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
@@ -341,7 +332,7 @@
 
        <?php 
          $query = "SELECT *, tbl_category.category_id, tbl_category.name FROM tbl_uploads INNER JOIN tbl_category ON tbl_uploads.category_id=tbl_category.category_id ORDER BY id DESC";         
-        $records_per_page=10;
+        $records_per_page=5;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate->dataview($newquery);
         $paginate->paginglink($query,$records_per_page);    
@@ -449,6 +440,7 @@ $('#search_field').on('keyup', function() {
 
 
 });
+
 </script>
 </body>
 </html>

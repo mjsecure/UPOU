@@ -13,8 +13,7 @@
   <title>UP Open University</title> 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="/UPOU/admin/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">  
+  <link rel="stylesheet" href="/UPOU/admin/font-awesome-4.7.0/css/font-awesome.min.css">   
   <link rel="stylesheet" href="/UPOU/admin/dist/css/AdminLTE.min.css"> 
   <link rel="stylesheet" href="/UPOU/admin/dist/css/skins/_all-skins.min.css">  
   <link rel="stylesheet" href="/UPOU/admin/css/style1.css">  
@@ -47,6 +46,9 @@
     border-radius: 9px;
 }
  
+ .skin-blue .main-header li.user-header {
+    background-color: #7b1113;
+}
 </style>
 
  </head>
@@ -55,7 +57,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index.php" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">UPOU</span>
       <!-- logo for regular state and mobile devices -->
@@ -81,12 +83,12 @@
           <li class="dropdown notifications-menu">
                       
           <!-- Tasks: style can be found in dropdown.less -->
-
-
+          <?php echo $library; ?>
+        
 
           <li class="dropdown tasks-menu">
 
-            <?php echo $library; ?>
+            <?php echo $home; ?>
             <ul class="dropdown-menu">
               
               <li>
@@ -130,10 +132,8 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-
       <!-- search form -->
       <br>
-
 <br>
      <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -158,18 +158,17 @@
 
 <br>
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-4" style="float: right;">
     <div class="input-group">
       <input type="text" class="form-control SearchBar" id="search_field" placeholder="Search for...">
       <span class="input-group-btn">
-        <button class="btn btn-defaul SearchButton" type="button">
+        <button class="btn btn-primary SearchButton" type="button">
             <span class=" glyphicon glyphicon-search SearchIcon" > <b>Search</b> </span>
         </button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div><!-- /.row --><br>
-
+</div><!-- /.row --> 
 
             </div>
             <!-- /.box-header -->
@@ -180,7 +179,7 @@
     <td><b>Category</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>File Name</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>Details</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>  
-    <td><center><b>Link</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></center></td>
+    <td><b>Link</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>Published on</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
 
  </tr> 
