@@ -47,7 +47,7 @@ if ($gClient->getAccessToken()) {
         $hi = ' <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <span class="glyphicon glyphicon-user"></span>&nbsp;Hi! ' . $userData['first_name'].' ' . $userData['last_name'].'  <span class="caret"></span> </a>';
       
-       $logout = '<a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>';
+       $logout = '<a href="logout.php?logout"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"> Sign-Out</span></button></a>';
        
        $library = ' <a href="library.php">
               <span class="glyphicon glyphicon-file"></span>&nbsp;LIBRARY&nbsp;<span class="primary"></span></a>';
@@ -196,7 +196,7 @@ if ($gClient->getAccessToken()) {
               <!-- Menu Footer-->
               <li class="user-footer">                
                 <div class="pull-right">
-                  <a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
+                  <a href="logout.php?logout"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"> Sign-Out</span></button></a>
                 </div>
               </li>
             </ul>

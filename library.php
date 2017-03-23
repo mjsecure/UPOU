@@ -49,6 +49,7 @@
  .skin-blue .main-header li.user-header {
     background-color: #7b1113;
 }
+
 </style>
 
  </head>
@@ -116,7 +117,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">                
                 <div class="pull-right">
-                  <a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
+                  <a href="logout.php?logout"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"> Sign-Out</span></button></a> 
                 </div>
               </li>
             </ul>
@@ -156,6 +157,10 @@
 <div class="box">
             <div class="box-header">
 
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<?php include 'date_time.php';?>
+
+
 <br>
 <div class="row">
   <div class="col-lg-4" style="float: right;">
@@ -174,7 +179,7 @@
             <!-- /.box-header -->
             <div class="box-body">
 
-  <table class="table table-hover" id="myTable">
+  <table class="table table-striped table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
     <td><b>Category</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>File Name</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
@@ -186,7 +191,7 @@
 
        <?php 
          $query = "SELECT *, tbl_category.category_id, tbl_category.name FROM tbl_uploads INNER JOIN tbl_category ON tbl_uploads.category_id=tbl_category.category_id ORDER BY id DESC";        
-        $records_per_page=5;
+        $records_per_page=10;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate->dataview($newquery);
         $paginate->paginglink($query,$records_per_page);    

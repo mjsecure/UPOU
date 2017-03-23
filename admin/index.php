@@ -104,7 +104,7 @@ if(isset($_POST['btn-login']))
         </div>
 <br>
 <div class="form-group">
-    <center>  <button type="submit" name="btn-login" class="btn btn-default">
+    <center>  <button type="submit" name="btn-login" class="btn btn-lg btn-default">
                   <i class="glyphicon glyphicon-log-in"></i> &nbsp; SIGN IN
            </center> </button>
         </div>  

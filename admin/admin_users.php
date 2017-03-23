@@ -69,6 +69,15 @@ if(isset($_GET['delete_user_id']))
     border-left-color: #b43c25;
 }
 
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+    height: 52px;
+    padding: 5px;
+    text-align: center;
+}
+
+table {
+  background-color: #E1E1E1;
+}
 </style>
 
  </head>
@@ -94,20 +103,11 @@ if(isset($_GET['delete_user_id']))
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-              <br>
-                <h3><font color="#eee">UP Open University</font></h3>                
-                <p>
-                UPOU@gmail.com
-                </p>
+             <a href="logout.php?logout=true"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"> Sign-Out</span></button></a> 
               </li>
              
               <!-- Menu Footer-->
-              <li class="user-footer">                
-                <div class="pull-right">
-
-                <a href="logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
-                </div>
-              </li>
+             
             </ul>
           </li>
 </ul>
@@ -180,7 +180,7 @@ if(isset($_GET['delete_user_id']))
 </div><!-- /.row -->
 
 <div class="box-body">
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; ADD NEW </button> <br>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp; ADD NEW </button> <br> 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
@@ -225,7 +225,7 @@ if(isset($_GET['delete_user_id']))
 
 <!-- /End -->
 
-  <table class="table table-responsive table-hover" id="myTable">
+  <table class="table table-striped table-bordered table-responsive table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
     <td><b>User Name</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>Email</b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
@@ -236,7 +236,7 @@ if(isset($_GET['delete_user_id']))
 
        <?php 
         $query = "SELECT * FROM tbl_access ORDER BY user_id DESC";     
-        $records_per_page=5;
+        $records_per_page=10;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate1->dataview($newquery);
         $paginate1->paginglink($query,$records_per_page);    

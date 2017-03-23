@@ -24,24 +24,27 @@ class paginate
                 <tr>  
                 <td> <?php echo $row['name']; ?> </td>
                 <td> <?php echo $row['file']; ?> </td>     
-                <td>
-   <label>Type:&nbsp;</label> <?php echo $row['type']; ?>  <br>
-   <label>Size:&nbsp;</label> <?php echo $row['size']; ?>  <br>
+                <td>  
    <label>Title:&nbsp;</label> <?php echo $row['title']; ?> <br>
    <label>Description:&nbsp;</label> <?php echo $row['description']; ?> <br>
-   <label>Location:&nbsp;</label> <?php echo $row['location']; ?> <br>   
+   
+                </td>
+<td>			
+   <label>Type:&nbsp;</label> <?php echo $row['type']; ?>  <br>
+   <label>Size:&nbsp;</label> <?php echo $row['size']; ?>  <br>
+   <label>Location:&nbsp;</label> <?php echo $row['location']; ?> <br>      
    <label>Uploaded By:&nbsp;</label> <?php echo $row['uploaded_by']; ?> <br>
    <label>Date Created:&nbsp;</label>  <?php echo $row['date_created']; ?> <br>
    <label>Date Updated:&nbsp;</label> <?php echo $row['date_updated']; ?> <br>
    <label>Url:&nbsp;&nbsp;</label><i><a href="<?php echo $row['url'] ?>" target="_blank"><?php echo $row['url'] ?></a></i>
-                </td>
 
+</td>
         <td>            	
- <a href="uploads/<?php echo $row['file'] ?>" target="_blank" title="View"> <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-eye-open"> View </span></button></a> 
+ <a href="uploads/<?php echo $row['file'] ?>" target="_blank" title="View"> <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-eye-open"></span></button></a> <br>
 
- <a href="edit.php?edit_id=<?php echo $row['id']; ?>" title="Edit" ><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"> Edit</span></button></a> 
+ <a href="edit.php?edit_id=<?php echo $row['id']; ?>" title="Edit" ><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a> <br>
 
-<a href="?delete_id=<?php echo $row['id']; ?>" title="Delete"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"> Delete</span></button></a> 
+<a href="?delete_id=<?php echo $row['id']; ?>" title="Delete"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></a> 
          </td>
          </tr>
 

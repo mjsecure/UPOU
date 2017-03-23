@@ -10,7 +10,7 @@ unset($_SESSION['userData']);
 $gClient->revokeToken();
 
 //Destroy entire session
-session_destroy();
+session_destroy($_SESSION['userData']);
 
 //Redirect to homepage
 header("Location:/UPOU/");

@@ -122,10 +122,11 @@ if(isset($_POST['btn-signup']))
       }
       ?>
 
+ 
 
         </div>
-        <div class="modal-footer">          
-        </div>
+        <div class="modal-footer">              
+         </div>
       </div>
 
     </div>

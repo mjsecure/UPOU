@@ -157,6 +157,12 @@
     background: #335627;
     border-left-color: #b43c25;
 }
+
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+    height: 52px;
+    padding: 5px;
+    text-align: center;
+}
   </style>
 
 
@@ -184,20 +190,11 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-              <br>
-                <h3><font color="#eee">UP Open University</font></h3>                
-                <p>
-                UPOU@gmail.com
-                </p>
+              <a href="logout.php?logout=true"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"> Sign-Out</span></button></a> 
               </li>
              
               <!-- Menu Footer-->
-              <li class="user-footer">                
-                <div class="pull-right">
-
-                <a href="logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
-                </div>
-              </li>
+            
             </ul>
           </li>
 </ul>

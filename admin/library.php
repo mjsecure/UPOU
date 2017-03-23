@@ -73,6 +73,16 @@
     border-left-color: #b43c25;
 }
 
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+    height: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+table {
+  background-color: #E1E1E1;
+}
+
 </style>
 
  </head>
@@ -98,19 +108,12 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-              <br>
-                <h3><font color="#eee">UP Open University</font></h3>                
-                <p>
-                UPOU@gmail.com
-                </p>
+            <a href="logout.php?logout=true"><button class="btn btn-danger"><span class="glyphicon glyphicon-log-out"> Sign-Out</span></button></a> 
+
               </li>
              
               <!-- Menu Footer-->
-              <li class="user-footer">                
-                <div class="pull-right">
-
-                <a href="logout.php?logout=true"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
-                </div>
+             
               </li>
             </ul>
           </li>
@@ -319,19 +322,18 @@
 
 <!-- UPLOAD -->
 
-
-<table class="table table-responsive table-hover" id="myTable">
+<table class="table table-striped table-bordered table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
     <td><b>Category </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>File Name </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
-    <td><b><center>Details </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></center></td>   
+    <td colspan="2"><b><center>Details </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></center></td>   
     <td><b>Action</b> </td>
 
  </tr> 
 
        <?php 
          $query = "SELECT *, tbl_category.category_id, tbl_category.name FROM tbl_uploads INNER JOIN tbl_category ON tbl_uploads.category_id=tbl_category.category_id ORDER BY id DESC";         
-        $records_per_page=5;
+        $records_per_page=10;
         $newquery = $paginate->paging($query,$records_per_page);
         $paginate->dataview($newquery);
         $paginate->paginglink($query,$records_per_page);    
