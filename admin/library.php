@@ -72,6 +72,7 @@
     background: #335627;
     border-left-color: #b43c25;
 }
+
 </style>
 
  </head>
@@ -319,9 +320,7 @@
 <!-- UPLOAD -->
 
 
-
-
-  <table class="table table-responsive table-hover" id="myTable">
+<table class="table table-responsive table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
     <td><b>Category </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
     <td><b>File Name </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>

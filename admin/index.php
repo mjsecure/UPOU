@@ -68,7 +68,7 @@ if(isset($_POST['btn-login']))
   <div class="login-box-body">
 
 <center>
-<img src="/UPOU/admin/images/logo.png" alt="Logo" style="width:313px;height:200px;">
+<img src="/UPOU/admin/images/logo.png" alt="Logo" style="width:245px;height:155px;">
 </center>
     
 <br><br>

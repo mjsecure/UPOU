@@ -1,3 +1,4 @@
+
  .btn-default {
     background-color: #7b1113;
     color: #fff;
@@ -56,4 +57,6 @@
     background-color: #7b1113;
 }
 
- 
+ .box-body {    
+    overflow-y: auto;
+}

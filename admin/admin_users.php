@@ -68,6 +68,7 @@ if(isset($_GET['delete_user_id']))
     background: #335627;
     border-left-color: #b43c25;
 }
+
 </style>
 
  </head>
