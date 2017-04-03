@@ -55,7 +55,7 @@ class paginate
 		{
 			?>
             <tr>
-            <td colspan="4"> <center><div class="alert alert-warning">
+            <td colspan="5"> <center><div class="alert alert-warning">
                 <span class="glyphicon glyphicon-info-sign"></span> <strong>Nothing Here...</strong> 
             </div></center></td>
             </tr>

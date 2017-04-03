@@ -35,6 +35,10 @@ if(isset($_POST['btn-signup']))
 	else if(strlen($upass) < 6){
 		$error[] = "Password must be atleast 6 characters";	
 	}
+  else if(strlen($upass) > 10){
+    $error[] = "Password must be atleast 10 characters"; 
+  }
+
 	else
 	{
 		try

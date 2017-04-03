@@ -79,9 +79,7 @@
     text-align: center;
 }
 
-table {
-  background-color: #E1E1E1;
-}
+
 
 </style>
 
@@ -190,7 +188,7 @@ table {
 
  <!-- UPLOAD -->
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button> <br>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal" ><i class="fa fa-upload"></i> <span> &nbsp;&nbsp; UPLOAD </button> <br>  <br>  <br> 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="#exampleModal1" aria-hidden="true">
   <div class="modal-dialog">
