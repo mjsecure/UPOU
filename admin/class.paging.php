@@ -35,7 +35,7 @@ class paginate
    <label>Location:&nbsp;</label> <?php echo $row['location']; ?> <br>      
    <label>Uploaded By:&nbsp;</label> <?php echo $row['uploaded_by']; ?> <br>
    <label>Date Created:&nbsp;</label>  <?php echo $row['date_created']; ?> <br>
-   <label>Date Updated:&nbsp;</label> <?php echo $row['date_updated']; ?> <br>
+   <label>Date Updated:&nbsp;</label> <?php echo date('l; F j, Y; g:i a', strtotime($row['date_created'])) ?> <br>
    <label>Url:&nbsp;&nbsp;</label><i><a href="<?php echo $row['url'] ?>" target="_blank"><?php echo $row['url'] ?></a></i>
 
 </td>
