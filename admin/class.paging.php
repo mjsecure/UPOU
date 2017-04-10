@@ -27,7 +27,6 @@ class paginate
                 <td>  
    <label>Title:&nbsp;</label> <?php echo $row['title']; ?> <br>
    <label>Description:&nbsp;</label> <?php echo $row['description']; ?> <br>
-   
                 </td>
 <td>			
    <label>Type:&nbsp;</label> <?php echo $row['type']; ?>  <br>
