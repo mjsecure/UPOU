@@ -333,11 +333,18 @@
 
   <table class="table table-hover" id="myTable">
  <tr style="background-color:#7b1113;color:#F0FFFF;">    
-    <td><b>Category </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
-    <td><b>File Name </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>
-    <td><b>Details </b>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical" onclick="sortTable(0)"> </span></td>   
-    <td><b>Action</b> </td>
-
+    <td><b>Action </b> </td>
+    <td><b>Category </b> </td>
+    <td><b>Filename </b> </td>   
+    <td><b>Type</b> </td>
+    <td><b>Size </b> </td>
+    <td><b>Title </b> </td>
+    <td><b>Description </b> </td>   
+    <td><b>Location</b> </td>
+    <td><b>URL </b> </td>
+    <td><b>Uploaded By </b> </td>
+    <td><b>Date Created </b> </td>   
+    <td><b>Date Updated</b> </td>
  </tr> 
 
        <?php 

@@ -22,30 +22,26 @@ class paginate
 				?>
  
                 <tr>  
-                <td> <?php echo $row['name']; ?> </td>
-                <td> <?php echo $row['file']; ?> <td>     
-                
-   <label>Type:&nbsp;</label> <?php echo $row['type']; ?>  <br>
-   <label>Size:&nbsp;</label> <?php echo $row['size']; ?>  <br>
-   <label>Title:&nbsp;</label> <?php echo $row['title']; ?> <br>
-   <label>Description:&nbsp;</label> <?php echo $row['description']; ?> <br>
-   <label>Location:&nbsp;</label> <?php echo $row['location']; ?> <br>
-   <label>Url:&nbsp;</label> <a href="<?php echo $row['url'] ?>" target="_blank"><?php echo $row['url'] ?></a> </li><br>
-   <label>Uploaded By:&nbsp;</label> <?php echo $row['uploaded_by']; ?> <br>
-   <label>Date Created:&nbsp;</label>  <?php echo $row['date_created']; ?> <br>
-   <label>Date Updated:&nbsp;</label> <?php echo $row['date_updated']; ?> <br>
+<td colspan="3"> <a href="uploads/<?php echo $row['file'] ?>" target="_blank" title="View"> <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-eye-open"></span></button></a>
 
-                     </td>
-        <td>                	
- 
-<a href="uploads/<?php echo $row['file'] ?>" target="_blank" title="View"> <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-eye-open"> View </span></button></a> 
+<a href="edit.php?edit_id=<?php echo $row['id']; ?>" title="Edit" ><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button></a> 
 
- <a href="edit.php?edit_id=<?php echo $row['id']; ?>" title="Edit" ><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-edit"> Edit</span></button></a> 
+ <a href="?delete_id=<?php echo $row['id']; ?>" title="Delete"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button></a> </td>
 
-<a href="?delete_id=<?php echo $row['id']; ?>" title="Delete"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"> Delete</span></button></a> 
+                <td>  <?php echo $row['name']; ?> </td>
+                <td>  <?php echo $row['file']; ?> </td>                     
+  			    <td>  <?php echo $row['type']; ?>   </td>    
+  		        <td>  <?php echo $row['size']; ?>   </td>
+  		        <td>  <?php echo $row['title']; ?>  </td>
+    		    <td>  <?php echo $row['description']; ?> </td>
+    		    <td>  <?php echo $row['location']; ?>  </td>
+   		        <td>  <a href="<?php echo $row['url'] ?>" target="_blank"><?php echo $row['url'] ?></a>  </td>
+   			    <td>  <?php echo $row['uploaded_by']; ?>  </td>
+   			    <td>  <?php echo $row['date_created']; ?> </td>
+   				<td>  <?php echo $row['date_updated']; ?>  </td>
+                     
 
-   
-                </td>
+                 
                 </tr>
 
                 <?php
